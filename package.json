@@ -7,7 +7,7 @@
     "start": "node scraper.js"
   },
   "dependencies": {
-    "puppeteer": "^24.0.0",
+    "puppeteer-core": "^21.11.0",
     "@supabase/supabase-js": "^2.39.0"
   }
 }
