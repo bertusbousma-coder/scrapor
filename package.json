@@ -1,0 +1,13 @@
+{
+  "name": "shill-scraper",
+  "version": "1.0.0",
+  "description": "Scrapes uxento and pushes to Supabase",
+  "main": "scraper.js",
+  "scripts": {
+    "start": "node scraper.js"
+  },
+  "dependencies": {
+    "puppeteer": "^21.0.0",
+    "@supabase/supabase-js": "^2.39.0"
+  }
+}
