@@ -29,15 +29,27 @@ async function scrape() {
     // Set viewport
     await page.setViewport({ width: 1280, height: 900 });
 
-    // Inject the session cookie
-    await page.setCookie({
-      name:   'turnkey_session',
-      value:  UXENTO_COOKIE,
-      domain: 'app.uxento.io',
-      path:   '/',
-      secure: true,
-      httpOnly: false,
-    });
+    // Set cookies properly
+    await page.setCookie(
+      {
+        name:     'turnkey_session',
+        value:    UXENTO_COOKIE,
+        domain:   'app.uxento.io',
+        path:     '/',
+        secure:   true,
+        httpOnly: false,
+        sameSite: 'None',
+      },
+      {
+        name:     'turnkey_session',
+        value:    UXENTO_COOKIE,
+        domain:   '.uxento.io',
+        path:     '/',
+        secure:   true,
+        httpOnly: false,
+        sameSite: 'None',
+      }
+    );
 
     // Navigate to uxento vision feed
     await page.goto(SCRAPE_URL, { waitUntil: 'networkidle2', timeout: 60_000 });
